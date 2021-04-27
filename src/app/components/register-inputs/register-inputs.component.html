@@ -1,0 +1,41 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="card-container">
+      <div class="form-group">
+
+        <div class="title-radio">
+          <div class="title-radioSub">
+            <label class="label-title" for="role">Papel no time:</label>
+            <div class="radio-option">
+              <input id="owner" type="radio" value="owner" name="role" formControlName="role"
+                (change)="changeRole($event)">
+              <label for="owner">Owner</label>
+            </div>
+
+            <div class="radio-option">
+              <input id="dev" type="radio" value="dev" name="role" formControlName="role" (change)="changeRole($event)">
+              <label for="dev">Dev</label>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="input-name" for="name"></label>
+          <input id="name" type="text" name="name" formControlName="name" (change)="changeRole($event)"
+            placeholder="Insira aqui seu nome">
+        </div>
+
+
+        <div *ngIf="f.role.touched && f.role.invalid" class="alert alert-danger">
+          <div *ngIf="f.role.errors.required"></div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Entrar na Sala</button>
+
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<router-outlet></router-outlet>

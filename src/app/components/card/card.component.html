@@ -1,0 +1,14 @@
+<section class="card-container">
+  <div class="cards">
+    <div *ngFor="let card of data">
+      <section class="card">
+        <div class="card-img-container">
+          <img class="image" [src]="card.imagePath" alt="values" id={{card.cardValue}}
+            (click)="callFunction($event, card)">
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<router-outlet></router-outlet>
